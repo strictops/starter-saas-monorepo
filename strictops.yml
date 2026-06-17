@@ -1,0 +1,19 @@
+version: 1
+
+deploy:
+  environments: [dev, prod]
+  production: [prod]
+
+database:
+  enabled: true
+
+services:
+  web:
+    type: web
+    port: 3000
+    healthcheck_path: /health
+    links: [api]
+  api:
+    type: api
+    port: 3000
+    healthcheck_path: /health
