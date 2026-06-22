@@ -68,7 +68,6 @@ you want to mirror deploy behavior.
 | `API_URL` | web | API base URL. Defaults to `http://localhost:3001`. |
 | `DATABASE_URL` | api | PostgreSQL connection string injected when the database is enabled. |
 | `STRICTOPS_HOME_URL` | web | Optional StrictOps home link override. |
-| `STRICTOPS_APP_URL` | web | Optional StrictOps Console URL used for docs links. |
 
 ## Service Map
 

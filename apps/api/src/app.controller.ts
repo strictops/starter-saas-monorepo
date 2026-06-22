@@ -2,7 +2,14 @@ import { Controller, Get } from '@nestjs/common';
 import { Pool } from 'pg';
 
 const pool = process.env.DATABASE_URL
-  ? new Pool({ connectionString: process.env.DATABASE_URL })
+  ? new Pool({
+      connectionString: process.env.DATABASE_URL,
+      // StrictOps-provisioned RDS enforces TLS (rds.force_ssl=1), so a plaintext
+      // connection is rejected with "no pg_hba.conf entry ... no encryption".
+      // Connect over SSL; skip CA verification so the starter works without
+      // bundling the RDS root cert.
+      ssl: { rejectUnauthorized: false },
+    })
   : null;
 
 type DatabaseStatus = {

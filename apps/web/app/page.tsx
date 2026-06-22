@@ -31,9 +31,7 @@ export default async function HomePage() {
   const projectName = process.env.STRICTOPS_PROJECT_NAME || 'starter';
   const region = process.env.STRICTOPS_REGION || 'local';
   const strictopsHomeUrl = process.env.STRICTOPS_HOME_URL || 'https://strictops.dev/';
-  const strictopsDocsUrl = process.env.STRICTOPS_APP_URL
-    ? `${process.env.STRICTOPS_APP_URL}/docs/getting-started`
-    : 'https://strictops.dev/docs/getting-started';
+  const strictopsDocsUrl = 'https://app.strictops.dev/docs/getting-started';
   const apiStatus = await getApiStatus();
   const database = apiStatus?.database;
 
